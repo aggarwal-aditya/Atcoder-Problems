@@ -29,12 +29,23 @@ bool cmp(int a, int b) {
 int neighborX[4] = {0, 0, 1, -1};
 int neighborY[4] = {1, -1, 0, 0};
 string stepDir = "RLDU";
+string inv(string s)
+{
+    int n = (int)s.size() / 2;
+    return s.substr(n, n) + s.substr(0, n);
+}
 signed main()
 {
-//#ifndef ONLINE_JUDGE
-//    freopen("input.txt", "r", stdin);
-//    freopen("output.txt", "w", stdout);
-//#endif
+    std::chrono::time_point<std::chrono::high_resolution_clock> start, end;
+    start = std::chrono::high_resolution_clock::now();
+    /*
+    Code goes here
+    */
+
+#ifndef ONLINE_JUDGE
+    freopen("random_07.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+#endif
     //ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
     int n; cin >> n;
     string s; cin >> s;
@@ -80,20 +91,14 @@ signed main()
         cout << s;
     else
     {
-        string temp = "";
-        for (int i = n; i < (2 * n); i++)
-        {
-            temp = temp + s[i];
-            //cout << temp << endl;
-        }
-        for (int i = 0; i < n; i++)
-        {
-            temp = temp + s[i];
-        }
-        s = temp;
-        cout << s;
+
+        cout << inv(s);
+
 
     }
+    // end = std::chrono::high_resolution_clock::now();
+    // ll elapsed_time = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+    // cout << "\nElapsed Time: " << elapsed_time << "ms\n";
 
 
 }
